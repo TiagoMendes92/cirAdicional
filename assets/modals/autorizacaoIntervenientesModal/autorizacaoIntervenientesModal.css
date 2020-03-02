@@ -1,0 +1,83 @@
+#autorizacao_intervenientes{
+    width: 90vw;
+}
+
+.container-filtros{
+    font-size: .75vw;
+}
+
+.input-adicional-nome{
+    width: 19vw;
+    border: 0;
+    background: white;
+    height: 1vw;
+    border-radius: 5px;
+    margin-left: 1vw;
+    transform: translateY(-.07vw);
+}
+.input-adicional{
+    width: 9vw;
+    border: 0;
+    background: white;
+    height: 1vw;
+    border-radius: 5px;
+    margin-left: 1vw;
+    transform: translateY(-.07vw);
+}
+
+.margin-filtros{
+    margin-left: 2vw;
+}
+
+#intervenientes, #apoio, #addToEquipaCirurgica{
+    margin-top:3vw; 
+    font-size: 0.75vw;
+}
+
+#intervenientes-header, #apoio-header, #addToEquipaCirurgica-header{
+    border-bottom:1px solid rgb(206,206,206);
+    width:93% !important;
+    font-weight: 600;
+}
+
+#intervenientes-header div, #apoio-header div, #addToEquipaCirurgica-header div{
+    padding-bottom: 8px;
+} 
+
+#intervenientes-body, #apoio-body, #addToEquipaCirurgica-body{
+    height: 8.9vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#addToEquipaCirurgica-body{
+    height: 13.35vw;
+}
+
+.border-bottom{
+    border-bottom: 1px solid rgb(206,206,206);
+}
+
+.border-bottom-white{
+    border-bottom: 1px solid transparent;
+}
+
+.col_float{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.elemento-row{
+    display: table;
+    padding:.521vw 0 0 0;
+    width: 100%;
+}
+
+.elemento-row div{
+    padding-bottom: 0.365vw;
+}
+
+.removeElemento{
+    color: red;
+    cursor: pointer;
+}

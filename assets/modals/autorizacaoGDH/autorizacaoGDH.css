@@ -1,0 +1,50 @@
+#autorizacao_gdh{
+    width: 80vw;
+}
+
+#gdh-table, #define-funcoes-EC-table, #define-funcoes-EA-table{
+    margin-top: 2vw;
+}
+
+#define-funcoes-EC-table, #define-funcoes-EA-table{
+    width: 90%;
+}
+
+#gdh-table-header, #gdh-table-header-autorizacoes, #define-funcoes-EC-table-header, #define-funcoes-EA-table-header{
+    display: table;
+    width: 100%;
+}
+
+#gdh-table-header div , #gdh-table-header-autorizacoes div, #define-funcoes-EC-table-header div, #define-funcoes-EA-table-header div{
+    float:left;
+    font-weight: 600;
+}
+
+#gdh-table-body, #gdh-table-body-autorizacoes, #define-funcoes-EC-table-body, #define-funcoes-EA-table-body{
+    max-height: 62vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: calc(100% + 16px);
+}
+
+.elemento-row{
+    display: table;
+    padding:.521vw 0 0 0;
+    width: 100%;
+}
+
+.edit-gdh{
+    background: white;
+    color: #036aff;
+    cursor: pointer;
+    border: 1px solid #036aff;
+    border-radius: 3vw;
+    font-size: 0.65vw;
+    padding: 0.175vw .15vw;
+    transition: all .3s ease;
+}
+
+.edit-gdh:hover{
+    background: #036aff;
+    color: white;
+}

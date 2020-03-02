@@ -1,0 +1,97 @@
+
+.inactive_menu{
+    opacity: .5;
+    transition: opacity 0.5 ease;
+}
+.inactive_menu:hover{
+    opacity: 1;
+}
+
+.active_menu{
+    transition: opacity 0.5 ease;
+    opacity: 1 !important;
+    color: #036aff;
+}
+
+#hist_filters{
+    background: #f3f8ff;
+    padding: 1vw;
+    width: calc(100% - 2vw);
+    padding-bottom: 0;
+}
+
+#hist_filters_container{
+    display: block;
+}
+
+.hist_filter{
+    width: 100%;
+    padding-bottom: 1vw;
+}
+
+#hist_results_label{
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+.hist_filter input{
+    width: 80% !important;
+    border: 0;
+    background: white;
+    height: 1vw;
+    border-radius: 5px;
+    margin-right: 0.5vw;
+    transform: translateY(-.07vw);
+    margin-top: .75vw;
+} 
+
+.hist_filter select{
+    width: 80% !important;
+    -webkit-appearance: none;
+    background: url(../../images/select_icon.png) no-repeat right white;
+    height: 1vw;
+    background-size: contain;
+    border-radius: 5px;
+    margin-right: 0.5vw;
+    transform: translateY(-.07vw);
+    border: 0;
+    margin-top: .75vw;
+    padding-right:23px;
+}
+
+#hist_filters .searchIcon{
+    background: #036aff;
+    padding: .5vw;
+    border-radius: 1vw;
+    border: 0;
+    outline: 0;
+    color: white;
+    cursor: pointer;
+    margin-top: 1vw;
+    margin-right: 1vw;
+}
+
+#hist_results{
+    height: calc(100vh - 17vw);
+    display: block;
+    overflow: auto;
+}
+
+.hist_result_row{
+    padding: 0.5vw;
+    width: calc(100% - 3vw);
+    margin-bottom: 1px;
+    border-radius: 0.1vw;
+}
+
+.addEquipaHist{
+    color: green;
+}
+
+.removeEquipaHist{
+    color: red;
+}
+
+.valitadeHist{
+    color: blue;
+}

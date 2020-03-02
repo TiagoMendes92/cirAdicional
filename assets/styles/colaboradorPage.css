@@ -1,0 +1,89 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin:0;
+  background: #EBF6F5;
+  font-family: sf-regular;
+  padding:20px;
+}
+
+#user{
+  display: block; 
+}
+
+#user #pageHeader{
+  padding-bottom: 25px;
+}
+
+#user #pageBody{
+  border-top:1px solid lightgray;
+  padding-top: 25px;
+  width: 100%;
+}
+
+#episodio_table_header{
+  display: table;
+  width: 100%;
+}
+
+#episodio_table_header div{
+  display: table-cell;
+}
+
+#episodio_table_body{
+  margin-top: 10px;
+}
+
+#episodio_table_body .zeroResults{
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+
+.episodio{
+  width: 100%;
+  display: table;
+  margin-bottom: 5px;
+}
+
+.episodio div{
+  width: 100%;
+  display: table-cell;
+}
+
+.episodio div .innerCell{
+  display: block;
+  width: calc(100% - 15px);
+  margin-right: 15px;
+  background: white;
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+
+#nenhum_user{
+  display: none;
+}
+
+#total{
+  margin-top:15px;
+  border-top: 1px solid lightgray;
+  padding-top:15px;
+  display: table;
+  width: 100%;
+}
+
+#total div{
+  display: table-cell;
+}
+
+#totalLbl{
+  display: block;
+  width: calc(100% - 15px);
+  margin-right: 15px;
+  background: white;
+  border-radius: 5px;
+  padding: 6px 10px;
+}

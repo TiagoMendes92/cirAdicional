@@ -1,0 +1,254 @@
+@font-face {
+    font-family: sf-regular;
+    src: url(../fonts/SF-Pro-Text-Regular.woff);
+  }
+  @font-face {
+    font-family: sf-bold;
+    src: url(../fonts/SF-Pro-Text-Bold.woff);
+  }
+  @font-face {
+    font-family: sf-black;
+    src: url(../fonts/SF-Pro-Text-Heavy.woff);
+  }
+  @font-face {
+    font-family: sf-light;
+    src: url(../fonts/SF-Pro-Text-Light.woff);
+  }
+.col_container{
+    display: table;
+    width: 100%;
+}
+
+.col_container_flex{
+    width: 100%;
+}
+
+
+.col_flex{
+    float: left;
+}
+
+.col{
+    display: table-cell;
+}
+
+.col_4{
+    width: 4%;
+}
+
+.col_5{
+    width: 5%;
+}
+
+.col_10{
+    width: 10%;
+}
+
+.col_14{
+    width: 15%;
+}
+
+.col_20{
+    width: 20%;
+}
+
+.col_25{
+    width: 25%;
+}
+
+.col_33{
+    width: 33.3%;
+}
+
+.col_35{
+    width: 35%;
+}
+
+.col_40{
+    width: 40%;
+}
+
+.col_50{
+    width: 50%;
+}
+
+.col_55{
+    width: 55%;
+}
+
+.col_60{
+    width: 60%;
+}
+
+.col_65{
+    width: 65%;
+}
+
+.col_80{
+    width: 80%;
+}
+
+.col_96{
+    width: 96%;
+}
+
+.col_10_float{
+    float: left;
+    width: 10%;
+}
+
+.col_45_float{
+    float: left;
+    width: 50%;
+}
+
+.col_40_float{
+    float: left;
+    width: 40%;
+}
+
+.col_55_float{
+    float: left;
+    width: 55%;
+}
+
+.table-cell{
+    display: table-cell;
+}
+
+.alignMiddle{
+    vertical-align:  middle !important;
+}
+
+.marginLeft20{
+    margin-left:20px;
+}
+
+.marginBottom10{
+    padding-top:4px;
+    padding-bottom: 6px;
+}
+
+.borderBottom{
+    border-bottom: 1px solid rgb(206,206,206);
+}
+
+.font-regular{
+    font-family: sf-regular;
+}
+
+.font-bold{
+    font-family: sf-bold;
+}
+
+.font-black{
+    font-family: sf-black;
+}
+.font-light{
+    font-family: sf-light;
+}
+
+.btn-outline{
+    font-family: sf-regular;
+    float: left;
+    background: rgb(243,248, 255);
+    padding: .5vw 1vw;
+    border-radius: 2vw;
+    font-size: 0.75vw;
+    border: 2px solid #036aff;
+    outline: 0;
+    color: #036aff;
+    cursor: pointer;
+    transition: 0.3s;
+    transition-timing-function: cubic-bezier(.6,.01,.65,.99);
+    width: 11vw;
+}
+.btn-outline:hover{
+    color: #fff;
+    background: #036aff;
+}
+
+.tableHeader h5{
+    font-size: 0.75vw;
+    font-weight: 700;
+    margin:.25vw;
+}
+
+
+.episodioValidado{
+    background: #00b896  !important;
+}
+
+.episodioValidado_check{
+    color:white;
+    font-size:1.2vw;
+}
+
+.episodioValidado_check i{
+    position: absolute;
+    top: -0.2vw;
+    left: -.2vw;
+}
+
+.removeValidation{
+    position: absolute !important;
+    top: 1px;
+    color: #fc575e;
+    font-size: 1.2vw;
+    margin-left: 0.5vw;
+    background: white;
+    right: calc(2.25vw - 20px);
+    border-radius: 50%;
+}
+
+.tooltip_container{
+    position: relative;
+}
+
+.tooltip{
+    position: absolute;
+    display: none;
+    width: max-content;
+    background: white;
+    padding: 10px;
+    z-index: 999;
+    border-radius: 5px;
+    max-width: 400px;
+    top: calc(100% + 5px);
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.left_tooltip{
+    left:-5px;  
+}
+
+.right_tooltip{
+    right: calc(100% - 1vw);
+}
+
+.tooltip:after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    z-index: 99000;
+    border: 10px white 0px 10px white;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 6px solid white;
+}
+
+.left_tooltip:after {
+    left: 7px;
+}
+
+.right_tooltip:after {
+    right: 7px;
+}
+
+.numericValue{
+    text-align: right;
+}

@@ -1,0 +1,120 @@
+#edit_episodio{
+    width: 90vw;
+    line-height: 175%;
+}
+
+#edit_episodio h5{
+    font-size: .85vw;
+    margin: 0.25vw 0 ;
+}
+
+#edit_episodio p{
+    font-size:.7vw;  
+    margin:0;
+}
+#edit_episodio p span{
+    margin-left:.75vw;
+}
+
+#edit_episodio span{
+    font-size:.7vw;  
+}
+
+#edit_episodio .divider{
+    width: 10%;
+    height: 1px;
+    background: rgb(206,206,206);
+    margin-bottom: .5vw;
+}
+
+.mTop{
+    margin-top:2vw !important;
+}
+
+#episodio_haeder{
+    position: relative;
+    background: #f3f8ff;
+    margin-top: -25px;
+    margin-left: -25px;
+    padding: 25px;
+}
+
+#episodio_haeder .close_modal{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    color: #1072ff;
+    font-size: 1.1vw;
+    cursor: pointer;
+}
+
+#episodio_body{
+    background: white;
+    margin-left: -25px;
+    padding-left: 25px;
+    width: calc(100% + 25px);
+    margin-bottom: -25px;
+    padding-bottom: 25px;
+}
+
+.table_modal{
+    width:85%;
+    padding-top: 25px;
+}
+
+.table_modal_body{
+    height: 5.2vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-size: .7vw;
+    font-weight: 400;
+    padding-right: 10px;
+}
+
+.dispTable{
+    display: table !important;
+    width: 100% !important;
+}
+
+#edit_episodio button{
+    margin-top: 4vw;
+    margin-left: 7vw;
+}
+
+.insertGDH{
+    width: 70% !important;
+    -webkit-appearance: none;
+    background: url(../../images/select_icon.png) no-repeat right white;
+    height: 1vw;
+    background-size: contain;
+    border-radius: 5px;
+    margin-right: 0.5vw;
+    transform: translateY(-.07vw);
+    border: 0;
+    margin-top: .75vw;
+    margin-left: 1.25vw;
+}
+
+#valor_unitario1-editModal, #perc1-editModal, #valor_pagar1-editModal {
+    color:grey; 
+    font-size:.95vw !important;
+}
+
+#valor_unitario2-editModal, #perc2-editModal, #valor_pagar2-editModal{
+    color:red; 
+    font-size:.95vw !important; 
+}
+
+#addGDHtoEpisodio-EditModal{
+    margin: 0 !important;
+    position: absolute;
+    bottom: 1vw;
+    right: 1vw;
+}
+
+#mantainGDHEpisodio-EditModal{
+    margin: 0 !important;
+    position: absolute;
+    bottom: 1vw;
+    right: 9vw;
+}

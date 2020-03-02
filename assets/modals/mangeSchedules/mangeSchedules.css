@@ -1,0 +1,22 @@
+#manageSchedulesModal{
+  width: 70vw;
+}
+
+#modal_servicos_list{
+  height: calc(100vh - 300px);
+    overflow: auto;
+}
+
+#modal_servicos_list .line{
+  border-bottom: 1px solid lightgrey;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#header{
+  font-weight: 400;
+  background: rgba(3, 106, 255, .5);
+  color: white;
+  padding: 7.5px;
+  box-sizing: border-box;
+}

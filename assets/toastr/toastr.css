@@ -1,0 +1,24 @@
+.toaster{
+    position: fixed;
+    z-index: 99999;
+    right: calc(1vw + 11px);
+    bottom: -95px;
+    width: auto !important;
+    padding: 15px 20px 15px 5px;
+    max-width: 20vw;
+}
+
+.toastr_icon{
+    width:45px; 
+    text-align:center; 
+    font-size:20px; 
+    vertical-align: middle;
+}
+
+.error{
+    background:#e35b6d;
+}
+
+.success{
+    background: #38c79b;
+}

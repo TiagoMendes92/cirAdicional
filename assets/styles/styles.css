@@ -1,0 +1,631 @@
+body{
+    display: table;
+    width: 100vw;
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(51,61,76);
+    overflow: hidden;
+}
+
+body .col{
+    display: table-cell;
+    box-sizing: border-box;
+    height: 100%; 
+    vertical-align: top;
+}
+
+aside{
+    width: 27.5%;
+    min-width: 175px;
+    max-width: 300px;
+    background: rgb(243,248, 255);
+    border-top-right-radius: 50px;
+    padding-left: 2.45vw;
+    font-size: 0.8vw;
+    position: relative;
+}
+
+aside h5{
+    font-weight: 800;
+    margin-bottom: .7vw;
+    font-size: 0.9vw;
+    margin-top: 1.4vw;
+}
+
+aside #logout{
+    float: right;
+    margin-right: 2vw;
+    color: #036aff;
+    cursor:pointer;
+}
+
+aside .divider{
+    width: 15%;
+    height: 1px;
+    background: rgb(206,206,206);
+}
+
+aside #estados_filtros{
+    margin-top: 3vw;
+}
+
+aside #errorContainer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+aside .error_episodio{
+    background: #FC8181;
+    font-size: .7vw;
+    padding: 10px;
+}
+
+aside .error_episodio_icon{
+    font-size: 1.3vw;
+}
+
+aside .error_episodio_desc{
+    font-size: .65vw;
+}
+
+#error_semRegistoAdmissao{
+    display: none;
+}
+
+.container {
+    display: block;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: calc(100% - 5.3vw);
+    height: 1.75vw;
+    cursor: pointer;
+}
+  
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+.check{
+    position: relative;
+    width: 7.7%;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 1vw;
+    width: 1vw;
+    background-color: transparent;
+    border: 2px solid #2196F3;
+    border-radius: 3px;
+    transition: background .3s ease-in-out;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #7db9e8;
+}
+  
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+  
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 0.3vw;
+    top: 0.1vw;
+    width: 0.25vw;
+    height: 0.5vw;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+aside #estados_filtros .estado_filtro .nome_filtro{
+    height: 2.34vw;
+    font-weight: 600;
+}
+
+aside #estados_filtros .estado_filtro .divider{
+    position: absolute;
+    left: 0;
+    top: 1.3vw;
+    width: 16.67%;
+    height: 1px;
+    background: rgb(206,206,206);
+}
+
+#botoes_autorizacoes{
+    margin-top: 1vw;
+}
+
+#botoes_autorizacoes button{
+    background: #036aff;
+    padding: .5vw 1vw;
+    border-radius: 1vw;
+    border: 0;
+    outline: 0;
+    color: white;
+    cursor: pointer;
+}
+
+#label_pesquisa{
+    margin-top: 2vw;
+}
+
+#pesquisa_filtros{
+    margin-top: 1.45vw;
+}
+
+#pesquisa_filtros .pesquisa_filtro{
+    height: 1.75vw;
+    font-weight: 600;
+}
+
+#pesquisa_filtros .pesquisa_filtro .pesquisa_filtro_nome{
+    float: left;
+    width:28%;
+}
+
+#pesquisa_filtros .pesquisa_filtro select{
+    width: 7.7vw;
+    border: 0;
+    -webkit-appearance: none;
+    background: url(../images/select_icon.png) no-repeat right white;
+    height: 1vw;
+    background-size: contain;
+    border-radius: 5px;
+    margin-right: 0.5vw;
+    transform: translateY(-.07vw);
+    padding-right: 1vw;
+}
+
+#pesquisa_filtros input{
+    width: 7vw;
+    border: 0;
+    background: white;
+    height: 1vw;
+    border-radius: 5px;
+    margin-right: 0.5vw;
+    transform: translateY(-.07vw);
+}
+
+#data_filtros{
+    margin-top:1vw;
+}
+
+#data_filtros .divider{
+    width:20%;
+    height: 1px;
+    background: rgb(206,206,206);
+    margin-bottom: 2.3vw;
+}
+
+#data_filtros .data_filtro{
+    height: 1.75vw;
+    font-weight: 600;
+}
+
+#data_filtros .data_filtro .data_filtro_nome{
+    float: left;
+    width: 33.5%;
+}
+
+#data_filtros .data_filtro input{
+    width: 7vw;
+    border: 0;
+    background: white;
+    height: 1vw;
+    border-radius: 5px;
+    margin-right: 0.5vw;
+    transform: translateY(-.07vw);
+}
+
+#data_filtros .data_filtro select{
+    width: 7.7vw;
+    border: 0;
+    -webkit-appearance: none;
+    background: url(../images/select_icon.png) no-repeat right white;
+    height: 1vw;
+    background-size: contain;
+    border-radius: 5px;
+    margin-right: 0.5vw;
+    transform: translateY(-.07vw);
+}
+
+#botoes_filtros{
+    margin-top:1vw;
+    margin-right: 1vw;
+}
+
+#botoes_filtros button{
+    float: right;
+    background: #036aff;
+    padding: .5vw 1vw;
+    border-radius: 1vw;
+    border: 0;
+    outline: 0;
+    color: white;
+    cursor: pointer;
+    margin-right: 1vw;
+}
+
+main{
+    padding-left: 3.7vw;
+}
+
+main h5{
+    font-weight: 800;
+    margin-bottom: 0.75vw;
+    font-size: 0.8vw;
+    margin-top: 1.55vw;
+}
+
+main .divider{
+    width: 5%;
+    height: 1px;
+    background: rgb(206,206,206);
+}
+
+main #episodios_header h5{
+    font-size: 0.95vw;
+    font-weight: 600;
+    letter-spacing: 0.03vw;
+    float: left;
+    margin-bottom:0;
+    border-bottom: 1px solid lightgray;
+}
+
+main #episodios_header h5:last-of-type{
+    border-bottom: 0px;
+}
+
+#episodios_body{
+    height: calc(100vh - 13vw);
+    overflow: scroll;
+    width: 100%;
+    overflow-x: hidden;
+    padding-right: 16px;
+}
+
+.episodio{
+    width: calc(100% + 16px);
+    height: 23px;
+    align-items: center;
+    padding: 10px 0;
+    background-color: transparent;
+    transition: background-color 1s cubic-bezier(0.19, 1, 0.22, 1);
+    font-size: 0.75vw;
+}
+
+.open{
+    background: rgba(3, 106, 255, .25) !important;
+    height: 590px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+
+.error{
+    background: #FC8181 !important;    
+}
+
+.refused_episodio{
+    background: #f5c721 !important;
+}
+
+.episodio:hover{
+    background-color: rgba(3, 106, 255, .25);
+    cursor: pointer;
+}
+
+.episodio .checkmark{
+    top:-4px;
+}
+
+.episodio section{
+    float: left;
+    padding-top:4px;
+    height: 100%;
+}
+
+.episodio section div{
+    float: left;
+}
+
+.episodio .toggle{
+    position: absolute;
+    top: 1px;
+    color: #2196f3;
+    font-size: 1.2vw;
+    margin-left: 0.5vw;
+    background: white;
+    right: calc(3.75vw - 20px);
+    border-radius: 50%;
+}
+
+.episodio .edit{
+    position: absolute;
+    top: 1px;
+    color: #2196f3;
+    font-size: 0.7vw;
+    margin-left: 0.5vw;
+    background: white;
+    right: calc(2.25vw - 20px);
+    border-radius: 50%;
+    border: 2px solid #2196f3;
+    padding: .15vw;
+    display: none;
+}
+
+.episodio .print{
+    position: absolute;
+    top: 1px;
+    color: #2196f3;
+    font-size: 0.7vw;
+    margin-left: 0.5vw;
+    background: white;
+    right: calc(.75vw - 20px);
+    border-radius: 50%;
+    border: 2px solid #2196f3;
+    padding: .15vw;
+    display: none;
+}
+
+.collapsable{
+    width: 100%;
+    height: 0px !important;
+    overflow: hidden;
+    transition: height 1s cubic-bezier(0.19, 1, 0.22, 1), background 1s cubic-bezier(0.19, 1, 0.22, 1);
+    margin-top: 6px;
+    padding: 0vw 0vw !important;
+    color: transparent;
+    cursor: default;
+}
+
+.expanded{
+    height: calc(550px - 2vw) !important;
+    background: #f3f8ff !important;
+    padding: 0vw 2vw 2vw 2vw !important;
+    color: rgb(51,61,76);
+    font-weight: 800;
+    margin-bottom: 0.75vw;
+    font-size: 0.9vw;
+    margin-top: -550px;
+    overflow: auto;
+}
+
+.collapsable .divider{
+    width: 10%;
+    float: none;
+}
+
+.tableHeader{
+    width: 85%;
+    border-bottom: 1px solid rgb(206,206,206);
+    font-size: .7vw;
+    font-weight: 800;
+    padding: 7px 0px;
+}
+
+.tableHeader div{
+    float: left;
+}
+
+.tableBody{
+    width: calc(85% + 19px);
+    height: 5.2vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-size: .7vw;
+    font-weight: 400;
+    padding-right: 10px;
+}
+
+.tableBody div{
+    float: left;
+    border-bottom: 1px solid rgb(206,206,206);
+    padding: 7px 0px;
+}
+
+#equipaTableHeader{
+    margin-top:2vw;
+}
+
+#intervencaoTableHeader{
+    margin-top: 5.5vw;
+}
+
+#episodios_body .checkmark{
+    right:-20px;
+}
+
+#equipaATableHeader{
+    margin-top:3vw;
+}
+
+#diagnosticoTableHeader{
+    margin-top: 3vw;
+}
+
+#cirugiaSegura{
+    width:75%; 
+    margin-top:3vw; 
+    font-size: .7vw;
+}
+
+#cirugiaSegura span{
+    font-weight: 600;
+}
+
+#cirugiaSegura .container{
+    width: 2.5vw;
+    margin-left: 7vw;
+    font-weight: 400;
+}
+
+.simulatedCheckbox_unchecked{
+    width: 1vw;
+    height: 1vw;
+    border: 2px solid #2196f3;
+    border-radius: 3px;
+    margin-left: -.15vw;
+    margin-top: -.2vw;
+}
+
+.simulatedCheckbox_checked{
+    width: 1vw;
+    height: 1vw;
+    border: 2px solid #2196f3;
+    border-radius: 3px;
+    margin-left: -.15vw;
+    margin-top: -.2vw;
+    background: #2196f3;
+    position: relative;
+}
+
+.simulatedCheckbox_checked span{
+    position: absolute;
+    left: 0.3vw;
+    top: 0.1vw;
+    width: 0.25vw;
+    height: 0.5vw;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+} 
+
+
+
+#erros_validacao_pendente_secretariado, #erros_validacao_pendente_gdh{
+    width: 70vw;
+    max-width: 900px;
+}
+
+.errors_modal_container{
+    background: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    max-height: 180px;
+    overflow: auto;
+}
+
+#resumoModal{
+    width: 70vw;
+    max-width: 900px;
+}
+
+
+/* COPIADO A PAPO SECO PARA O RESUMP */
+#verResumo_tableBody .service_unit{
+    display: table-cell;
+    padding: 0;
+    background: transparent;
+    margin-bottom: 0;
+    width: auto;
+    margin-left: 0;
+    border-radius: 0;
+}
+  
+#verResumo_tableBody .service_unit_interior{
+    background: white;
+    border-radius: 5px;
+    width: calc(100% - 15px);
+}
+
+#verResumo_tableBody .toValidate{
+    background: blue;
+    color: white;
+    border-radius: 50%;
+    padding: 3px;
+    font-size: 13px;
+}
+  
+#verResumo_tableBody .otherIcon{
+    font-size: 20px;
+}
+  
+#verResumo_tableBody .btn{
+    color: white;
+    padding: 1vw 3vw;
+    font-size: 16px;
+    border-radius: 2vw;
+    border: 0;
+    margin-right: 1vw;
+    outline: 0;
+    cursor: pointer;
+}
+  
+#verResumo_tableBody .unit_coloured_table{
+    width: calc(100% - 15px);
+    background: #EBF6F5;
+    border-radius: 5px;
+}
+  
+#verResumo_tableBody  #body_servico{
+    overflow-x: hidden; 
+    overflow-y: auto; 
+    max-height: 250px; 
+    display: block; 
+    width: 60vw;
+}
+
+.unit_coloured_table{
+    background: #EBF6F5;
+    border-radius: 5px;
+}
+
+.ep_resumo_titulo{
+    font-size: 14px;
+}
+
+#refusedEpisodeOptions{
+    width: 70vw;
+}
+
+
+#refusedEpisodeOptions .button{
+    background: #036aff;
+    padding: .5vw 1vw;
+    border-radius: 1vw;
+    border: 0;
+    outline: 0;
+    color: white;
+    cursor: pointer;
+    margin-top: 1vw;
+    float:right;
+    margin-left: 1vw;
+}
+
+.user_app{
+    width: 100%;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
+    padding: 3px;
+    font-size: .7vw;
+}

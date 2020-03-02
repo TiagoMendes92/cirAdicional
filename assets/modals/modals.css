@@ -1,0 +1,157 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 106, 255, .95);
+}
+
+.modal{
+    background: rgb(243,248, 255);
+    box-shadow: -15px 30px 26px -30px rgba(43,49,56,.32);
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    border-radius: 5px;
+    max-height: 91vh;
+    overflow-y: auto;
+}
+
+.submodal .modal{
+    width: 53.5vw;
+}
+
+.minimodal .modal{
+    width: 19vw;
+}
+
+.bigModal{
+    top:50%;
+}
+
+.modal_title{
+    margin-top:0;
+}
+
+.modal_title i{
+    float: right;
+    color: #1072ff;
+    font-size: 1.1vw;
+    cursor: pointer;
+}
+
+.separator{
+    background: #036aff;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 20px;
+}
+
+.modal_form{
+    background: rgb(240,240,240);
+    transform: translateX(-25px);
+    width: calc(100% - 50px);
+    padding: 25px 50px;
+}
+
+.modal_form label{
+    font-variant: small-caps;
+}
+
+.modal_form input{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #036aff;
+    outline: 0;
+    color: #036aff;
+    background: transparent;
+    padding: 7px;
+    font-weight: 800;
+}
+
+.modal_form input:last-of-type{
+    margin-bottom: 0px;
+}
+
+.modal_buttons{
+    margin-top: 25px;
+}
+
+.modal_buttons button{
+    background: #036aff;
+    color: rgba(255,255,255,0.75);
+    transition: color .3s ease;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    padding: 10px 25px;
+    float: right;
+    border-radius: 25px;
+}
+
+.modal_buttons button:hover{
+    color:white;
+}
+
+.modalCheck{
+    width: auto !important;
+    float: left;
+    margin-right: 12px !important;
+    transform: translate(23px, -3px);
+    height: auto !important;
+}
+
+.confirm-btn {
+    background: #036aff;
+    padding: .5vw 2vw;
+    border-radius: 1vw;
+    border: 0;
+    outline: 0;
+    color: white;
+    cursor: pointer;
+    float: right;
+    margin-left: 1vw;
+}
+
+.search-icon{
+    background: #036aff;
+    padding: .5vw;
+    border-radius: 1vw;
+    border: 0;
+    outline: 0;
+    color: white;
+    cursor: pointer;
+    margin-left:.5vw;
+}
+
+.search-icon-left{
+    margin-left: 16vw;
+}
+
+
+.empty-row{
+    text-align: center;
+    padding: 1vw;
+}
+
+form{
+    width: 100%;
+    padding: 0.5vw;
+}
+
+form label{
+    font-weight: 600;
+}
+
+form input{
+    font-size: 0.75vw;
+    padding: 0.5vw;
+    width: calc(100% - 2vw);
+    margin-bottom: 1vw;
+    margin-top:.25vw;
+}
