@@ -1,6 +1,6 @@
 <?php
-    include_once  $_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/dbclass.php';
-    include_once  $_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/appconfig.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
+
     $dbclass = new DBClass();
     $connection_GestRH_dados = $dbclass->getConnectionGestRH_dados();
     $n_mecsString = implode(",", json_decode($_POST['n_mecs']));

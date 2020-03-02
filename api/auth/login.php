@@ -1,10 +1,9 @@
 <?php
-    include_once  $_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/dbclass.php';
-    include_once  $_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/appconfig.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
+
     $dbclass = new DBClass();
     $connection = $dbclass->getConnection();
     $userPOST =json_decode($_POST['user']);
-
 
     $ldap_dn = "uid=".$userPOST->username.",dc=Example,dc=com";
     $ldap_pass = $userPOST->password;
