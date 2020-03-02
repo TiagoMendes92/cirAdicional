@@ -1,0 +1,14 @@
+USE [cirurgia_adicional]
+GO
+SET IDENTITY_INSERT [dbo].[login] ON 
+
+INSERT [dbo].[login] ([id], [user], [pass], [role_id], [servico_id]) VALUES (1, N'1235', N'admin', 5, NULL)
+INSERT [dbo].[login] ([id], [user], [pass], [role_id], [servico_id]) VALUES (2, N'2604', N'pass2', 2, NULL)
+INSERT [dbo].[login] ([id], [user], [pass], [role_id], [servico_id]) VALUES (3, N'2983', N'pass3', 3, NULL)
+INSERT [dbo].[login] ([id], [user], [pass], [role_id], [servico_id]) VALUES (4, N'2218', N'pass4', 4, NULL)
+INSERT [dbo].[login] ([id], [user], [pass], [role_id], [servico_id]) VALUES (5, N'2237', N'pass1', 1, 8)
+INSERT [dbo].[login] ([id], [user], [pass], [role_id], [servico_id]) VALUES (6, N'1943', N'pass1', 1, 8)
+INSERT [dbo].[login] ([id], [user], [pass], [role_id], [servico_id]) VALUES (7, N'1749', N'pass1', 1, 7)
+INSERT [dbo].[login] ([id], [user], [pass], [role_id], [servico_id]) VALUES (9, N'2602', N'pass1', 1, 7)
+INSERT [dbo].[login] ([id], [user], [pass], [role_id], [servico_id]) VALUES (11, N'teste', N'teste', -1, NULL)
+SET IDENTITY_INSERT [dbo].[login] OFF
