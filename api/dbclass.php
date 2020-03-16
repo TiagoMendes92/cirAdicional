@@ -1,5 +1,4 @@
 <?php
-
 class DBClass {
 
     // private $host = "localhost";
@@ -8,10 +7,13 @@ class DBClass {
     // private $database = "cirugia_adicional";
     
 
-    private $server = "LAPTOP-CDDKN3E8";
+    private $server = "172.23.2.86,2473";
+    // private $server = "LAPTOP-CDDKN3E8";
     private $username = "sa";
-    private $password = "1234";
-    private $database = "cirurgia_adicional";
+    private $password = "innuxhuc";
+    // private $password = "1234";
+
+    private $database = "40_ADICIONAL";
     public $connection;
 
     private $database_GestRH_dados = "GestRH_dados";
@@ -40,8 +42,17 @@ class DBClass {
         }
         return $this->connection_GestRH_dados;
     }
-}
 
-    // include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'historico' . DIRECTORY_SEPARATOR . 'addHistorico.php';
-    include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .'ciradicional_repo'. DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'historico' . DIRECTORY_SEPARATOR . 'addHistorico.php';
+    public function getimagesLink(){
+        $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR;
+        // return $_SERVER['DOCUMENT_ROOT'].'/40_Adicional/api/images/';
+    }
+
+    public function getoutputPDF(){
+        $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'generatedPDFS' .DIRECTORY_SEPARATOR;
+        // return $_SERVER['DOCUMENT_ROOT'].'/40_Adicional/api/generatedPDFS/';
+    }
+}
+include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'historico' . DIRECTORY_SEPARATOR . 'addHistorico.php';
+// include_once $_SERVER['DOCUMENT_ROOT'].'/40_adicional/api/historico/addHistorico.php';
 ?>

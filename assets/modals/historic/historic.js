@@ -809,7 +809,6 @@ function drawHistorico() {
                                 "<b>Lista de Funções Possíveis:</b></br>";
                         
                         var funcoes = (historicInfo.funcao != null && historicInfo.funcao != "" ? [JSON.parse(historicInfo.funcao)] : []); 
-                        console.log(funcoes);
                                 if(funcoes.length == 0){
                         info += "<span><b>Equipa Cirúrgica:</b></span><br>"+
                                 "<span>Nenhum Função Disponível</span><br><br>"+

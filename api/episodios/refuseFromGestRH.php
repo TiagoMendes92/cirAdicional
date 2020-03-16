@@ -1,6 +1,8 @@
 <?php
-   //   include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
-   include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .'ciradicional_repo'. DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
+   include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
+
+// include_once  $_SERVER['DOCUMENT_ROOT'] .'/40_adicional/api/dbclass.php';
+
    $dbclass = new DBClass();
    $connection = $dbclass->getConnection();
    $ids = explode(",",$_POST['ids']);

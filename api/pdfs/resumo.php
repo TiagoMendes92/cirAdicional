@@ -11,12 +11,16 @@
   $intervenienteN_MEC = $_POST['intervenienteN_MEC'];
   $intervenienteNOME = $_POST['intervenienteNOME'];
   $gdh = $_POST['gdh'];
-  
-  $nrEpisodios = sizeof($episodios) + 1;
 
+  // include_once  $_SERVER['DOCUMENT_ROOT'] .'/40_adicional/api/dbclass.php';
+  include_once  $_SERVER['DOCUMENT_ROOT'] .'/api/dbclass.php';
+  $dbclass = new DBClass();
+
+
+  $nrEpisodios = sizeof($episodios) + 1;
   $pdf = new FPDF('L','mm','A4');
   $pdf->AddPage();
-  $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/images/huc.jpg', 10, 10, 50);
+  $pdf->Image( $dbclass->getimagesLink().'huc.jpg', 10, 10, 50);
   $pdf->SetFont('Arial','B',12);
   $pdf->SetXY(100, 15); 
   $pdf->Write(0, utf8_decode("Centro Hospitalar e Universitário de Coimbra, EPE"));
@@ -115,7 +119,7 @@
   foreach ($episodios as $episodio) {
     $nrPag++;
     $pdf->AddPage();
-    $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/images/huc.jpg', 10, 10, 50);
+    $pdf->Image($dbclass->getimagesLink().'huc.jpg', 10, 10, 50);
     $pdf->SetFont('Arial','B',12);
     $pdf->SetXY(100, 15); 
     $pdf->Write(0, utf8_decode("Centro Hospitalar e Universitário de Coimbra, EPE"));
@@ -251,10 +255,10 @@
       $pdf->Rect(10, $dy, 135, 7);
       $pdf->SetFont('Arial','B', 10);
       $pdf->SetXY(12, $dy + 3.5); 
-      $pdf->Write(0, $diagnostico->sigla);
+      $pdf->Write(0, utf8_decode($diagnostico->sigla));
       $pdf->SetFont('Arial','', 10);
       $pdf->SetXY(24, $dy + 3.5); 
-      $pdf->Write(0, $diagnostico->nome);
+      $pdf->Write(0,  utf8_decode(substr($diagnostico->nome, 0, 60)) . (strlen($diagnostico->nome) > 60 ? '...' : ''));
       $dy+=7;
     }
 
@@ -269,10 +273,10 @@
       $pdf->Rect(150, $iy, 135, 7);
       $pdf->SetFont('Arial','B', 10);
       $pdf->SetXY(152, $iy + 3.5); 
-      $pdf->Write(0, $intervencao->sigla);
+      $pdf->Write(0, utf8_decode($intervencao->sigla));
       $pdf->SetFont('Arial','', 10);
-      $pdf->SetXY(164, $iy + 3.5); 
-      $pdf->Write(0, $intervencao->nome);
+      $pdf->SetXY(174, $iy + 3.5); 
+      $pdf->Write(0,  utf8_decode(substr($intervencao->nome, 0, 60)) . (strlen($intervencao->nome) > 60 ? '...' : ''));
       $iy+=7;
     }
 
@@ -283,6 +287,12 @@
       $biggest = $dy;
     }
     $biggest+=5;
+
+    if($biggest > 150){
+      $pdf->AddPage();
+      $biggest = 10;
+    }
+
     //EQUIPA CIRURGICA
     $pdf->SetFillColor(230, 230, 230);
     $pdf->Rect(10, $biggest, 275, 8,  'FD');
@@ -332,6 +342,12 @@
     }
 
     $biggest+=5;
+
+    if($biggest > 150){
+      $pdf->AddPage();
+      $biggest = 10;
+    }
+    
     //EQUIPA APOIO
     $pdf->SetFillColor(230, 230, 230);
     $pdf->Rect(10, $biggest, 275, 8,  'FD');
@@ -379,7 +395,6 @@
     }
 
   }
-  
-
-  $pdf->Output("F",$_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/generatedPDFS/nome.pdf'); 
-  echo json_encode('api/generatedPDFS/nome.pdf');
+  $nome = 'Resumo_'.($dataInicio != '' ? 'desde_'.$dataInicio.'_' : '').($dataFim != '' ? 'ate_'.$dataFim:'').'.pdf';
+  $pdf->Output("F",$dbclass->getoutputPDF().$nome); 
+  echo json_encode('api/generatedPDFS/'.$nome);

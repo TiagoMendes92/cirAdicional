@@ -572,11 +572,8 @@ function openValidationModal(it) {
             removeLoading();
             if(fdata == 'success'){
               closeModal();
-              var startOfMonth = moment().startOf('month').format('YYYY-MM-DD');
-              var endOfMonth   = moment().endOf('month').format('YYYY-MM-DD');
-              var default_date = new Date();
-              $("#monthPicker").datepicker("setDate", default_date);
-              searchEpisodios(startOfMonth, endOfMonth);
+              var dates = getDatesFromPicker();
+              searchEpisodios(dates[0], dates[1]);
             } else {
               alert("Erro ao enviar episódios para pagamento");
             } 
@@ -604,11 +601,8 @@ function openValidationModal(it) {
             removeLoading();
             if(fdata == 'success'){
               closeModal();
-              var startOfMonth = moment().startOf('month').format('YYYY-MM-DD');
-              var endOfMonth   = moment().endOf('month').format('YYYY-MM-DD');
-              var default_date = new Date();
-              $("#monthPicker").datepicker("setDate", default_date);
-              searchEpisodios(startOfMonth, endOfMonth);
+              var dates = getDatesFromPicker();
+              searchEpisodios(dates[0], dates[1]);
             } else {
               alert("Erro ao enviar episódios para pagamento");
             }
@@ -618,6 +612,22 @@ function openValidationModal(it) {
   });
 }
 
+
+function getDatesFromPicker() {
+  var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+  var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+  var realMonth = parseInt(month);
+  month = parseInt(month) + 1;
+  month = month.toString();
+  if(month.length == 1){
+    month = '0'+ month;
+  }
+  var date = year + "-" + month;
+  var beginDate = date + '-01';
+  var startDate = moment([year, realMonth]);
+  var endDate = moment(startDate).endOf('month').format('YYYY-MM-DD');
+  return [beginDate, endDate];
+}
 //aprovar múltiplos serviços
 function aprovarMultipleServices(){
   var servicesToApprove = [];
@@ -652,11 +662,8 @@ function aprovarMultipleServices(){
           if(fdata !== 'success'){
             alert("Erro ao enviar episódios para pagamento");
           } 
-          var startOfMonth = moment().startOf('month').format('YYYY-MM-DD');
-          var endOfMonth   = moment().endOf('month').format('YYYY-MM-DD');
-          var default_date = new Date();
-          $("#monthPicker").datepicker("setDate", default_date);
-          searchEpisodios(startOfMonth, endOfMonth);
+          var dates = getDatesFromPicker();
+          searchEpisodios(dates[0], dates[1]);
         }
     });
   } else {
@@ -1026,7 +1033,6 @@ function gerarFicheiro(){
       });
     });
     
-    console.log(episodios);
     addLoading();
     var fd = new FormData();
     fd.append('episodios', JSON.stringify(episodios));
@@ -1052,7 +1058,10 @@ function gerarFicheiro(){
             document.body.appendChild(a);
             a.click();
             a.remove();
-            loadEpisodios();
+            // loadEpisodios();
+            closeModal();
+            var dates = getDatesFromPicker();
+            searchEpisodios(dates[0], dates[1]);
           }
         }
     });

@@ -3,37 +3,38 @@
 
 // check login
 function checkAuth(){
-    addLoading();
-    $.ajax({
-        type: "GET",
-        url: "./api/episodios/scriptCheckEpisodios.php",
-        processData: false,
-        contentType: false,
-        success:function(data){
-            removeLoading();
-            var user = JSON.parse(sessionStorage.getItem('user'));
-            if(user != null){
-                if(user.role_id == '-1'){
-                    alert("Ainda não tem previlégios definidos para a esta aplicação. Por favor, solicite a um administrador que defina o seu papel na aplicação.");
-                    sessionStorage.removeItem('user');
-                    location.reload();
-                    return;
-                }
-                if(user['role_id'] == '3'){
-                    $('#pendente_secretariado').attr('checked', false);
-                }
-                if(user['role_id'] == '4'){
-                    $('#pendente_secretariado, #pendente_pagamento, #enviado_pagamento').attr('checked', false);
-                }            
-                if(user['role_id'] == '5'){
-                    $('#pendente_gdh, #pendente_pagamento, #enviado_pagamento, #pagamento_processado').attr('checked', false);
-                }
-                checkPrivilegies(user);
-            } else {
-                showLoginForm();
-            }
-        }
-    }); 
+	addLoading();
+	$.ajax({
+		type:"GET",
+		url:"./api/episodios/scriptCheckEpisodios.php",
+		processData: false,
+		contentType: false,
+		success: function (data){
+			removeLoading();
+			var user = JSON.parse(sessionStorage.getItem('user'));
+			if(user != null){
+				if(user.role_id == '-1'){
+					alert("Ainda não tem previlégios definidos para a esta aplicação. Por favor, solicite a um administrador que defina o seu papel na aplicação.");
+					sessionStorage.removeItem('user');
+					location.reload();
+					return;
+				}
+				if(user['role_id'] == '3'){
+					$('#pendente_secretariado').attr('checked', false);
+				}
+				if(user['role_id'] == '4'){
+					$('#pendente_secretariado, #pendente_pagamento, #enviado_pagamento').attr('checked', false);
+				}            
+				if(user['role_id'] == '5'){
+					$('#pendente_gdh, #pendente_pagamento, #enviado_pagamento, #pagamento_processado').attr('checked', false);
+				}
+				checkPrivilegies(user);
+			} else {
+				showLoginForm();
+			}
+		}
+	});
+    
 }
 
 // close all modals
@@ -145,7 +146,9 @@ function toggleEpisodiosState(id, estado) {
                 $("#mainList-validationButtons").empty();
                 $("#mainList-validationButtons").append("<button id='verResumo_enviadoPagamento' class='confirm-btn' style='margin-top:2vw; margin-right:2vw;' onclick='verResumoEnviadoPagamento()'>Ver Resumo</button>");
                 $("#mainList-validationButtons").append("<button id='imprimirResumo_enviadoPagamento' class='confirm-btn' style='margin-top:2vw; margin-right:2vw;' onclick='imprimirResumoEnviadoPagamento()'>Imprimir Resumo</button>");
-                $("#data_filtros").append("<div id='data_env_filtro' class='data_filtro'><div class='data_filtro_nome'>Data Envio Pag.</div><input id='data_env_ini_filtro' type='date'><input id='data_env_fim_filtro' type='date'></div>");
+                if(document.getElementById('data_env_filtro') == null){
+                    $("#data_filtros").append("<div id='data_env_filtro' class='data_filtro'><div class='data_filtro_nome'>Data Envio Pag.</div><input id='data_env_ini_filtro' type='date'><input id='data_env_fim_filtro' type='date'></div>");
+                }
             }
         } else {
             var tempEpisodios = [];
@@ -285,7 +288,6 @@ function imprimirResumoEnviadoPagamento(){
     fd.append('intervenienteN_MEC', intervenienteN_MEC);
     fd.append('intervenienteNOME', intervenienteNOME);
     fd.append('gdh', gdh);
-
     addLoading();
     $.ajax({
         type: "POST",
@@ -1173,8 +1175,8 @@ function checkIfEpisodioIsValidOrNotLVL4(episodio, it){
         // $("#container_pendente_secretariado_"+it).html("<div class='simulatedCheckbox_unchecked'></div>");
         if(user.role_id == "4"){
             $("#container_pendente_secretariado_"+it).html("");
-            $("#edit"+it).remove();
         }
+        $("#edit"+it).remove();
     }
     else if(episodio['estado'] == "2"){
         $("#edit"+it).remove();
@@ -2323,6 +2325,7 @@ function restaurarPesquisaEpisodios(){
         $("#mainList-validationButtons").append('<button id="validarPendenteGDH" class="confirm-btn" style="margin-top:2vw; margin-right:2vw;" onclick="validarGDHsEpisodios()">Validar</button>');
         getEpisodios([2], null);
         $("#pendente_pagamento").prop('checked', true);
+        $("#data_env_filtro").remove();
         return;
     }
     $('.mainList-filter').prop('checked', false);

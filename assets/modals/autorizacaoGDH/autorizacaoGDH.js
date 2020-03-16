@@ -101,7 +101,7 @@ function addFuncaoModal(team) {
     var servico = getServicoFromSelectValue();
     var equipa = (team == 0 ? 'EC' : 'EA');
     var addFuncao_modal = "<div class='overlay subsubmodal'>"+
-                                "<div id='addfuncao_modal' style='width:500px' class='modal bigModal'>"+
+                                "<div id='addfuncao_modal' class='modal bigModal'>"+
                                     "<h4 class='modal_title font-black'>Adicionar Função ao Serviço '"+servico.servico+"' <i onclick='closeSubsubModal();' class='fas fa-times-circle close_modal'></i></h4>"+
                                     "<div>"+
                                         "<form>"+
@@ -298,7 +298,7 @@ function editFuncaoModal(it, team){
         }
         targetFuncao['sigla'] = sigla;
         targetFuncao['funcao'] = funcao;
-        targetfuncao['perc'] = percentage;
+        targetFuncao['perc'] = percentage;
         var fd = new FormData();
         fd.append('id', servico.id);
         fd.append('funcao', JSON.stringify(targetFuncao));

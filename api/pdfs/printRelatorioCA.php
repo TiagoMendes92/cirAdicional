@@ -1,8 +1,7 @@
 <?php
-  // include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
-  include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .'ciradicional_repo'. DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
-
-
+  include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
+  // include_once  $_SERVER['DOCUMENT_ROOT'] .'/40_adicional/api/dbclass.php';
+  $dbclass = new DBClass();
   require('fpdf.php');
   date_default_timezone_set("Europe/Lisbon");
   $user =json_decode($_POST['user']);
@@ -20,9 +19,9 @@
   }
   $pdf = new FPDF('P','mm','A4');
   $pdf->AddPage();
-  $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/images/repptsaude.jpg', 10, 3, 50);
-  $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/images/sns.jpg', 85, 9, 50);
-  $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/images/chuc.jpg', 168, 9, 32);
+  $pdf->Image($dbclass->getimagesLink().'repptsaude.jpg', 10, 3, 50);
+  $pdf->Image($dbclass->getimagesLink().'sns.jpg', 85, 9, 50);
+  $pdf->Image($dbclass->getimagesLink().'chuc.jpg', 168, 9, 32);
   $pdf->SetFont('Arial','B',11);
   $pdf->SetXY(146, 31); 
   $pdf->Write(0, utf8_decode("Conselho de Administração"));
@@ -37,7 +36,7 @@
   $pdf->Write(0, utf8_decode("Assunto: "));
   $pdf->SetFont('Arial','',10);
   $pdf->SetXY(29, 57); 
-  $pdf->Write(0, utf8_decode("Pagamento de Cirurgia Adicional - ".$actual));
+  $pdf->Write(0, utf8_decode("Pagamento de Cirurgia Adicional - ".$data));
   $pdf->Rect(10,67,189,8);
   $pdf->SetFont('Arial','B',10);
   $pdf->SetXY(12, 71); 
@@ -67,14 +66,16 @@
         // $pdf->SetXY(162, $pY + 4);
         // $pdf->Cell(0, 0, utf8_decode("0.00 ").chr(128)."  ", 0, true, 'R');
       } else{
+
+        // var_dump($servico);
         $pdf->Rect(10,$pY,150,8);
         $pdf->Rect(160,$pY,39,8);
         $pdf->SetFont('Arial','',10);
         $pdf->SetXY(12, $pY + 4); 
         $pdf->Write(0, utf8_decode("Produção Cirúrgica Adicional - " . $servico->servico));
         $pdf->SetXY(162, $pY + 4);
-        $pdf->Cell(0, 0, utf8_decode(number_format($servico->valorPorValidar, 2, '.', '')." ").chr(128)."  ", 0, true, 'R');
-        $total += $servico->valorPorValidar;
+        $pdf->Cell(0, 0, utf8_decode(number_format(($servico->valorPorValidar + $servico->valorValidado), 2, '.', '')." ").chr(128)."  ", 0, true, 'R');
+        $total += ($servico->valorPorValidar + $servico->valorValidado);
         $pY+=8;
       } 
   }
@@ -95,9 +96,9 @@
     $actualPage++;
     $pdf->SetXY(100, 275); 
     $pdf->Write(0, utf8_decode($actualPage."/".$totalPages));
-    $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/images/repptsaude.jpg', 10, 3, 50);
-    $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/images/sns.jpg', 85, 9, 50);
-    $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/images/chuc.jpg', 168, 9, 32);
+    $pdf->Image($dbclass->getimagesLink().'repptsaude.jpg', 10, 3, 50);
+    $pdf->Image($dbclass->getimagesLink().'sns.jpg', 85, 9, 50);
+    $pdf->Image($dbclass->getimagesLink().'chuc.jpg', 168, 9, 32);
     $pdf->SetFont('Arial','B',11);
     $pdf->SetXY(146, 31); 
     $pdf->Write(0, utf8_decode("Conselho de Administração"));
@@ -162,7 +163,7 @@
         $nr_episodios = 0;
         $valor_correspondente = 0;
         foreach ($episodios as $episodio) {
-          if(($episodio->gdh2 == NULL && $episodio->gdh1 == $entireGDH['gdh']) || $episodio->gdh2 == $entireGDH['gdh']){
+          if(($episodio->gdh2 == NULL && $episodio->gdh1 == $entireGDH['id']) || $episodio->gdh2 == $entireGDH['id']){
             $nr_episodios++;
             $valor_correspondente += ($entireGDH['v_uni'] * $entireGDH['perc'] / 100);
           } 
@@ -187,9 +188,9 @@
         $pdf->SetFont('Arial','',10);
         $pdf->SetXY(100, 275); 
         $pdf->Write(0, utf8_decode($actualPage."/".$totalPages));
-        $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/images/repptsaude.jpg', 10, 3, 50);
-        $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/images/sns.jpg', 85, 9, 50);
-        $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/images/chuc.jpg', 168, 9, 32);
+        $pdf->Image($dbclass->getimagesLink().'repptsaude.jpg', 10, 3, 50);
+        $pdf->Image($dbclass->getimagesLink().'sns.jpg', 85, 9, 50);
+        $pdf->Image($dbclass->getimagesLink().'chuc.jpg', 168, 9, 32);
         $pdf->SetFont('Arial','B',11);
         $pdf->SetXY(146, 31); 
         $pdf->Write(0, utf8_decode("Conselho de Administração"));
@@ -280,10 +281,10 @@
           $pdf->Rect(10, $dy, 189, 7);
           $pdf->SetFont('Arial','B', 10);
           $pdf->SetXY(12, $dy + 3.5); 
-          $pdf->Write(0, $diagnostico->sigla);
+          $pdf->Write(0, utf8_decode($diagnostico->sigla));
           $pdf->SetFont('Arial','', 10);
-          $pdf->SetXY(24, $dy + 3.5); 
-          $pdf->Write(0, $diagnostico->nome);
+          $pdf->SetXY(32, $dy + 3.5); 
+          $pdf->Write(0, utf8_decode($diagnostico->nome));
           $dy+=7;
         }
         $dy += 7;
@@ -298,10 +299,10 @@
           $pdf->Rect(10, $dy, 189, 7);
           $pdf->SetFont('Arial','B', 10);
           $pdf->SetXY(12, $dy + 3.5); 
-          $pdf->Write(0, $intervencao->sigla);
+          $pdf->Write(0, utf8_decode($intervencao->sigla));
           $pdf->SetFont('Arial','', 10);
-          $pdf->SetXY(24, $dy + 3.5); 
-          $pdf->Write(0, $intervencao->nome);
+          $pdf->SetXY(32, $dy + 3.5); 
+          $pdf->Write(0, utf8_decode($intervencao->nome));
           $dy+=7;
         }
         $dy+=7;
@@ -396,8 +397,9 @@
     }
   }
 
-  $pdf->Output("F",$_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/generatedPDFS/nome.pdf'); 
-  echo json_encode('api/generatedPDFS/nome.pdf');
+  $nome = 'Resumo_'.$data.'.pdf';
+  $pdf->Output("F",$dbclass->getoutputPDF().$nome); 
+  echo json_encode('api/generatedPDFS/'.$nome);
 
 
 
