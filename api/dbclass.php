@@ -1,7 +1,5 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/appconfig.php';
-
 class DBClass {
 
     // private $host = "localhost";
@@ -44,5 +42,6 @@ class DBClass {
     }
 }
 
-include_once $_SERVER['DOCUMENT_ROOT'].'/CirurgiaAdicional-repo/api/historico/addHistorico.php';
+    // include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'historico' . DIRECTORY_SEPARATOR . 'addHistorico.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .'ciradicional_repo'. DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'historico' . DIRECTORY_SEPARATOR . 'addHistorico.php';
 ?>

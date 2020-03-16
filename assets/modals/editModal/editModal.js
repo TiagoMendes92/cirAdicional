@@ -496,6 +496,7 @@ function drawEquipaCirurgica(episodio) {
                                     (Number(funcao['perc']).toFixed(2))+"%"+
                                 "</div>"+
                                 "<div style='width:8.1%; float:left;' class='removeFromTeam-icon'>"+
+                                    // "<i onclick='editaFuncaoEquipa("+it+", 0)' class='fas fa-pen-square' style='color:blue; cursor:pointer; margin-right:15px;'></i>" +
                                     "<i onclick='removeFromEquipaCirurgica("+it+")' class='fas fa-minus-circle' style='color:red; cursor:pointer;'></i>" +
                                 "</div>"
                             "</div>";
@@ -508,6 +509,50 @@ function drawEquipaCirurgica(episodio) {
         $("#body_equipe_cirurgica").append(rowEquipa);
     }
 }
+
+// editar funcao equipa
+// function editaFuncaoEquipa(it, from)
+// {
+//     var interveniente = null;
+//     if(from == 0){
+//         interveniente = episodioToEdit['equipaCirugica'][it];
+//     } else {
+//         interveniente = episodioToEdit['equipaApoio'][it];
+//     }
+//     console.log(interveniente);
+
+//     var targetServicoID = episodio.servico;
+//     var targetServico;
+//     for (let index = servicos.length-1; index >= 0; index--) {
+//         const servicoCandidadte = servicos[index];
+//         if(servicoCandidadte['id'] == targetServicoID){
+//             targetServico = servicoCandidadte;
+//             break;
+//         }
+//     }
+//     var tempfuncoes = targetServico.lista_funcoes; 
+//     var funcoes = [];
+//     tempfuncoes.forEach(function(funcao) {
+//         if(funcao['equipa'] == 'EA'){
+//             funcoes.push(funcao);
+//         }
+//     });
+
+//     console.log(funcoes);
+    
+//     var editFuncaoModal =   "<div class='overlay submodal'>"+
+//                                 "<div class='modal' style='width:500px' id='editTeamMemberFunction-modal'>"+
+//                                     "<h4 class='modal_title font-black'>Editar Função do Interveniente '"+interveniente.nome+"' <i onclick='closeSubModal();' class='fas fa-times-circle close_modal'></i></h4>"+
+//                                     "<div style='background: #e4eff2; padding: 10px; border-radius: 5px;'>"+
+//                                         "<b>Função Actual:</b>"+
+//                                         "<p><b>"+interveniente.funcao.sigla +"</b> - "+interveniente.funcao.funcao+" <span style='margin-left: 25px;'><b>Percentagem:</b> "+interveniente.funcao.perc+" %</span></p>"+
+//                                     "</div>"+
+//                                     "<div>"+
+//                                     "</div>"+
+//                                 "</div>"+
+//                             "</div>";
+//     $("body").append(editFuncaoModal);
+// }
 
 // remover da equipa cirurgica
 function removeFromEquipaCirurgica(it) {    
@@ -555,6 +600,7 @@ function drawEquipaApoio(episodio) {
                                     (Number(funcao['perc']).toFixed(2))+"%"+
                                 "</div>"+
                                 "<div style='width:8.1%; float:left;' class='removeFromTeam-icon'>"+
+                                    // "<i onclick='editaFuncaoEquipa("+it+", 1)' class='fas fa-pen-square' style='color:blue; cursor:pointer; margin-right:15px;'></i>" +
                                     "<i onclick='removeFromEquipaApoio("+it+")' class='fas fa-minus-circle' style='color:red; cursor:pointer'></i>" +
                                 "</div>"+
                             "</div>";

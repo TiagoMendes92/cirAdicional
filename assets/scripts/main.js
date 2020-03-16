@@ -3,27 +3,37 @@
 
 // check login
 function checkAuth(){
-    var user = JSON.parse(sessionStorage.getItem('user'));
-    if(user != null){
-        if(user.role_id == '-1'){
-            alert("Ainda não tem previlégios definidos para a esta aplicação. Por favor, solicite a um administrador que defina o seu papel na aplicação.");
-            sessionStorage.removeItem('user');
-            location.reload();
-            return;
+    addLoading();
+    $.ajax({
+        type: "GET",
+        url: "./api/episodios/scriptCheckEpisodios.php",
+        processData: false,
+        contentType: false,
+        success:function(data){
+            removeLoading();
+            var user = JSON.parse(sessionStorage.getItem('user'));
+            if(user != null){
+                if(user.role_id == '-1'){
+                    alert("Ainda não tem previlégios definidos para a esta aplicação. Por favor, solicite a um administrador que defina o seu papel na aplicação.");
+                    sessionStorage.removeItem('user');
+                    location.reload();
+                    return;
+                }
+                if(user['role_id'] == '3'){
+                    $('#pendente_secretariado').attr('checked', false);
+                }
+                if(user['role_id'] == '4'){
+                    $('#pendente_secretariado, #pendente_pagamento, #enviado_pagamento').attr('checked', false);
+                }            
+                if(user['role_id'] == '5'){
+                    $('#pendente_gdh, #pendente_pagamento, #enviado_pagamento, #pagamento_processado').attr('checked', false);
+                }
+                checkPrivilegies(user);
+            } else {
+                showLoginForm();
+            }
         }
-        if(user['role_id'] == '3'){
-            $('#pendente_secretariado').attr('checked', false);
-        }
-        if(user['role_id'] == '4'){
-            $('#pendente_secretariado, #pendente_pagamento, #enviado_pagamento').attr('checked', false);
-        }            
-        if(user['role_id'] == '5'){
-            $('#pendente_gdh, #pendente_pagamento, #enviado_pagamento, #pagamento_processado').attr('checked', false);
-        }
-        checkPrivilegies(user);
-    } else {
-        showLoginForm();
-    }
+    }); 
 }
 
 // close all modals
@@ -1163,8 +1173,8 @@ function checkIfEpisodioIsValidOrNotLVL4(episodio, it){
         // $("#container_pendente_secretariado_"+it).html("<div class='simulatedCheckbox_unchecked'></div>");
         if(user.role_id == "4"){
             $("#container_pendente_secretariado_"+it).html("");
+            $("#edit"+it).remove();
         }
-        $("#edit"+it).remove();
     }
     else if(episodio['estado'] == "2"){
         $("#edit"+it).remove();
