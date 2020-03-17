@@ -102,7 +102,6 @@ function checkPrivilegies(user) {
         $("#botoes_autorizacoes").remove();
         $("#data_env_filtro").remove();
         getEpisodios([0, 1], user['servico_id']);
-        // $("#mainListSellALL").remove();
         return;
     }
     if(role == 2){
@@ -133,10 +132,7 @@ function checkPrivilegies(user) {
         //user 4 só vê pendente de pagamento e enviado por pagamento
         $("#filtro_pendente_secretariado").remove();
         $("#filtro_pendente_gdh").remove();
-        //removido botão de validar pendentes de gdh
-        // $("#mainList-validationButtons").append("<button id='validarPendenteGDH' class='confirm-btn' style='margin-top:2vw; margin-right:2vw;' onclick='validarGDHsEpisodios()'>Validar</button>");
         $("#data_env_filtro").remove();
-
         $("#botoes_autorizacoes").remove();
         $("#filtro_pagamento_processado").remove();
         $("#validarPendenteSecretariado").remove();
@@ -151,10 +147,7 @@ function checkPrivilegies(user) {
     getEpisodios([0], null);
     getHistoric();
     $("#data_env_filtro").remove();
-
     $("#top-menu").append("<span id='showHistorico' style='float:right; margin-right:5vw;' class='inactive_menu'>HISTÓRICO</span>");
-
-    // $("#botoes_filtros").prepend("<a target='_blank' href='https://www.fortydegrees.pt/cirurgia_adicional/sentForPayment.php'>Página a integrar no GestRH</a>");
     document.getElementById("showHistorico").addEventListener("click", function(event){
         event.stopPropagation();
         showHistorico();

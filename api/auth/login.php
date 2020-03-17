@@ -1,26 +1,18 @@
 <?php
-	//require_once 'C:\Sites\cadicional\config.php';
-
     include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
-    // include_once  $_SERVER['DOCUMENT_ROOT'] .'/40_adicional/api/dbclass.php';
     $dbclass = new DBClass();
     $connection = $dbclass->getConnection();
     $userPOST =json_decode($_POST['user']);
-
-
     $ldap_dn = "uid=".$userPOST->username.",dc=Example,dc=com";
     $ldap_pass = $userPOST->password;
     $ldap_con = ldap_connect("ldap.forumsys.com");
     ldap_set_option($ldap_con, LDAP_OPT_PROTOCOL_VERSION, 3);
-
 	$oops = false;
 	
     if($oops/*@ldap_bind($ldap_con, $ldap_dn, $ldap_pass)*/){
-
         $filter ="(uid=".$userPOST->username.")";
         $result = ldap_search($ldap_con, "dc=example,dc=com", $filter) or exit("can't search");
         $entries = ldap_get_entries($ldap_con, $result);
-        
         $stmt = $connection->prepare('SELECT [id], [user], [role_id], [servico_id] FROM [login] WHERE [user]=:username');
         $stmt->bindParam(':username', $userPOST->username,  PDO::PARAM_STR, 25);
         if($stmt->execute()){

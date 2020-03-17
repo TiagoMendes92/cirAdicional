@@ -12,8 +12,8 @@
   $intervenienteNOME = $_POST['intervenienteNOME'];
   $gdh = $_POST['gdh'];
 
-  // include_once  $_SERVER['DOCUMENT_ROOT'] .'/40_adicional/api/dbclass.php';
-  include_once  $_SERVER['DOCUMENT_ROOT'] .'/api/dbclass.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
+
   $dbclass = new DBClass();
 
 

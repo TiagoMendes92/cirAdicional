@@ -1,7 +1,6 @@
 <?php
   include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
-  // include_once  $_SERVER['DOCUMENT_ROOT'] .'/40_adicional/api/dbclass.php';
-  $dbclass = new DBClass();
+    $dbclass = new DBClass();
   require('fpdf.php');
   date_default_timezone_set("Europe/Lisbon");
   $user =json_decode($_POST['user']);
@@ -58,16 +57,7 @@
       }
     }
       if($servico == NULL){
-        // $pdf->Rect(10,$pY,150,8);
-        // $pdf->Rect(160,$pY,39,8);
-        // $pdf->SetFont('Arial','',10);
-        // $pdf->SetXY(12, $pY + 4); 
-        // $pdf->Write(0, utf8_decode("Produção Cirúrgica Adicional - " . $servico_can->servico));
-        // $pdf->SetXY(162, $pY + 4);
-        // $pdf->Cell(0, 0, utf8_decode("0.00 ").chr(128)."  ", 0, true, 'R');
       } else{
-
-        // var_dump($servico);
         $pdf->Rect(10,$pY,150,8);
         $pdf->Rect(160,$pY,39,8);
         $pdf->SetFont('Arial','',10);

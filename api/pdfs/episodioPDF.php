@@ -3,8 +3,8 @@ require('fpdf.php');
 date_default_timezone_set("Europe/Lisbon");
 $user =json_decode($_POST['user']);
 $episodio =json_decode($_POST['episodio']);
-// include_once  $_SERVER['DOCUMENT_ROOT'] .'/40_adicional/api/dbclass.php';
-include_once  $_SERVER['DOCUMENT_ROOT'] .'/api/dbclass.php';
+include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
+
 $dbclass = new DBClass();
 
 $pdf = new FPDF('L','mm','A4');

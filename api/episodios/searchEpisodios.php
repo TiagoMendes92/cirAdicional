@@ -1,16 +1,11 @@
 <?php
     include_once  $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR . 'dbclass.php';
 
-// include_once  $_SERVER['DOCUMENT_ROOT'] .'/40_adicional/api/dbclass.php';
 
     $dbclass = new DBClass();
     $connection = $dbclass->getConnection();
     $connection_GestRH_dados = $dbclass->getConnectionGestRH_dados();
-
     $estadosPOST = json_decode($_POST['estados']);
-
-    // var_dump($estadosPOST); 
-
     $query = 'SELECT * FROM [data_adicional_episodio] WHERE [estado] IN ('.implode(',',$estadosPOST).')';
     if(isset($_POST['doente'])){
       $query.= " AND [nome] LIKE '%".$_POST['doente']."%'";

@@ -252,17 +252,6 @@ function showEditModal(episodio){
                             "</button>"+
                         "</div>"; 
         $("#whereToADDgdhINPT").append(div);
-        // if(canMantainGDH){
-        //     var mantainGDHBtn = "<button onclick='manterGDH()' id='mantainGDHEpisodio-EditModal' class='btn-outline col_container' style='width: 7vw'>"+
-        //                             "<div class='col col_96 alignMiddle'>"+
-        //                                 "Manter GDH"+
-        //                             "</div>"+
-        //                             "<div class='col col_4  alignMiddle'>"+
-        //                                 "<i class='fas fa-plus' aria-hidden='true'></i>"+
-        //                             "</div>"+
-        //                         "</button>";
-        //     $( mantainGDHBtn ).insertAfter( "#addGDHtoEpisodio-EditModal" );
-        // }
 
         var episodioServiceID = episodio.servico;
         var episodioService;

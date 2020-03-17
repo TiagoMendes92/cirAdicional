@@ -1,6 +1,3 @@
-// [{"sigla":"CIR","funcao":"Cirurgião","percentage":"25","equipa":"EC"},{"sigla":"ANE","funcao":"Anestesista","percentage":"25","equipa":"EC"},{"sigla":"AUXB","funcao":"Auxiliar Bloco Operatório","percentage":"5","equipa":"EC"},{"sigla":"SEC","funcao":"Secretario","percentage":"2.5","equipa":"EA"}]
-
-
 // check login
 function checkAuth(){
 	addLoading();
@@ -298,7 +295,7 @@ function imprimirResumoEnviadoPagamento(){
         success:function(data){
             removeLoading();
             var link=document.createElement("a");
-            link.id = 'someLink'; //give it an ID!
+            link.id = 'someLink';
             link.href=JSON.parse(data);
             link.target="_blank";
             link.click();
@@ -1072,7 +1069,6 @@ function marcarCirurgiaInsegura(it, event){
 function checkIfEpisodioIsValidOrNotLVL1(episodio, it){
     if(meuServico['dupla_validacao_equipa'] == '1'){
         if(episodio['estado'] == "0"){
-            // $("#container_pendente_secretariado_"+it).html("<div class='simulatedCheckbox_unchecked'></div>");
             $("#container_pendente_secretariado_"+it).html("");
         } else if(episodio['estado'] == "1"){
             $("#container_pendente_gdh_"+it).html("<div class='episodioValidado_check'><i class='fas fa-check-circle tooltip_container' onmouseover='showTooltip(this)' onmouseout='hideTooltips()'><div class='tooltip right_tooltip'>Episódio Validado.</div></i></div>");
@@ -1172,7 +1168,6 @@ function removeValidationPendenteGDH(it){
 function checkIfEpisodioIsValidOrNotLVL4(episodio, it){
     if(episodio['estado'] == "0"){
         var user = JSON.parse(sessionStorage.getItem('user'));
-        // $("#container_pendente_secretariado_"+it).html("<div class='simulatedCheckbox_unchecked'></div>");
         if(user.role_id == "4"){
             $("#container_pendente_secretariado_"+it).html("");
         }

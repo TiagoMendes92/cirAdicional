@@ -586,7 +586,6 @@ function openValidationModal(it) {
     episodiosPorValidar.forEach(function (episodio){
       ids.push(episodio['id']);
     });
-    //NAO SEI BEM O QUE FAZER
     addLoading();
     var fd = new FormData();
     fd.append('ids', ids);
@@ -830,7 +829,7 @@ function printRelatorio() {
       success:function(data){
         removeLoading();
         var link=document.createElement("a");
-        link.id = 'someLink'; //give it an ID!
+        link.id = 'someLink'; 
         link.href=JSON.parse(data);
         link.target="_blank";
         link.click();
@@ -839,9 +838,8 @@ function printRelatorio() {
 }
 
 
-////////////////////////////////////////////////
-                //PARTE DOS RH//
-////////////////////////////////////////////////
+
+//PARTE DOS RH
 function drawEpisodiosServicoRH(){
   $("#approveBtn").remove();
   $("#buttonArea").html('<button id="approveBtn" onclick="gerarFicheiro()" class="button">Gerar Ficheiro</button>')
@@ -864,13 +862,11 @@ function drawEpisodiosServicoRH(){
 
         var div = "<div id='servico_"+it+"' style='display: table; width:100%; table-layout:fixed; margin-bottom: 15px;'>"+
                     "<div style='display:table-cell; width: 5%; vertical-align: middle'>";
-        // if(!everythingAlreadyInFile){
               div +=  "<label class='container costumHeight' style='transform: translateY(-.5vw)'>"+
                         "<input onclick='checkIfSelectAll_services("+it+")' id='sel_service"+it+"' class='sel_service' type='checkbox'>"+
                         "<span class='checkmark costumCheck'></span>"+
-                      "</label>";
-        // }   
-            div +=  "</div>"+
+                      "</label>"+ 
+                      "</div>"+
                       "<div style='width:60%; background:white; display: table-cell; vertical-align: middle'>"+
                         "<div>"+
                           servico.servico+
